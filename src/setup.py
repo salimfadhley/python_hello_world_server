@@ -4,11 +4,11 @@ import os
 
 PROJECT_ROOT, _ = os.path.split(__file__)
 REVISION = '0.0.0'
-PROJECT_NAME = 'homework'
+PROJECT_NAME = 'simple_hello_world_api'
 PROJECT_AUTHORS = "Salim Fadhley"
 PROJECT_EMAILS = 'salimfadhley@gmail.com'
-PROJECT_URL = "https://gitlab.com/salimfadhley/exodus_point_homework"
-SHORT_DESCRIPTION = 'Interview assignment'
+PROJECT_URL = "https://github.com/salimfadhley/python_hello_world_server"
+SHORT_DESCRIPTION = 'Demonstration'
 
 try:
     DESCRIPTION = open(os.path.join(PROJECT_ROOT, "readme.md")).read()
