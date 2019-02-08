@@ -7,5 +7,6 @@
     </content>
     <orderEntry type="jdk" jdkName="Remote Python 3.7.2 Docker Compose (python at [/home/sal/workspace/python_hello_world_server/docker-compose.yaml])" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="groovy-2.4.15" level="application" />
   </component>
 </module>
