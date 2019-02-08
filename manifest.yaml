@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-hello-world-server-deployment
+  labels:
+    app: python-hello-world-server
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: python-hello-world-server
+  template:
+    metadata:
+      labels:
+        app: python-hello-world-server
+    spec:
+      containers:
+      - name: python-hello-world-server
+        image: "salimfadhley/python-hello-world-server:latest"
+        ports:
+        - containerPort: 80

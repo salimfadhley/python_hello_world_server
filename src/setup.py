@@ -25,7 +25,7 @@ setup(
     version=REVISION,
     author=PROJECT_AUTHORS,
     author_email=PROJECT_EMAILS,
-    packages=['mexico'],
+    packages=['helloworld'],
     package_dir={"":"main"},
     zip_safe=True,
     include_package_data=False,
