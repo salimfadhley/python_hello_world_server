@@ -1,9 +1,9 @@
 pipeline {
-    agent { docker 'python:latest' }
+    agent { docker 'docker:latest' }
     stages {
         stage('build') {
             steps {
-                sh 'python --version'
+                sh 'docker buiold .'
             }
         }
     }
