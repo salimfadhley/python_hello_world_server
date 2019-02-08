@@ -9,7 +9,6 @@ pipeline {
             steps {
                 sh "python -m pip install -e src"
             }
-
         }
         stage('build') {
             steps {
