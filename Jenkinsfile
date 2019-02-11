@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    docker.run("hello-world")
+                    docker.image("hello-world").run()
                 }
 
 //                sh 'docker run hello-world'
