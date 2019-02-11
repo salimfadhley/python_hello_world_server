@@ -6,7 +6,8 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'docker run hello-world'
+                docker.run("hello-world")
+//                sh 'docker run hello-world'
 //                sh 'docker-compose build'
             }
         }
