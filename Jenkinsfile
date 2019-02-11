@@ -1,19 +1,19 @@
 pipeline {
     agent none
     stages {
-        agent {
-            docker { image 'docker/compose:1.23.2' }
-        }
-        stage('Build') {
-            steps {
-                script {
-                    docker.image("hello-world").withRun('') { c -> }
-                }
-
+//        agent {
+//            docker { image 'docker/compose:1.23.2' }
+//        }
+//        stage('Build') {
+//            steps {
+//                script {
+//                    docker.image("hello-world").withRun('') { c -> }
+//                }
+//
 //                sh 'docker run hello-world'
 //                sh 'docker-compose build'
-            }
-        }
+//            }
+//        }
 
         stage('Test') {
             agent {
