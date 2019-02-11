@@ -3,9 +3,7 @@ pipeline {
     stages {
 
         stage('Build') {
-            agent {
-                any
-            }
+            agent any
             steps {
                 script {
                     docker.image("hello-world").withRun('') { c -> }
