@@ -1,8 +1,14 @@
 pipeline {
     agent {
-        docker { image 'salimfadhley/testpython:latest' }
+        docker { image 'docker/compose' }
     }
     stages {
+
+        stage('Build') {
+            steps {
+                sh 'docker-compose build'
+            }
+        }
 
         stage('Test') {
             steps {
@@ -14,26 +20,16 @@ pipeline {
             }
         }
 
-    }
 
-    agent {
-        docker { image 'docker/compose' }
 
-    }
-    stages {
 
-        stage('Build') {
+        stage('Deploy') {
             steps {
-                sh 'docker-compose build'
+                sh 'echo Hello World!'
             }
         }
 
-
-//        stage('Deploy') {
-//            steps {
-//                sh 'echo Hello World!'
-//            }
-//        }
-
     }
+
+
 }
