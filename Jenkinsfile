@@ -8,6 +8,7 @@ pipeline {
             steps {
                 sh 'python -m pip install -e src'
                 sh 'python -m pytest src/tests --junitxml=/tmp/junit.xml'
+                archiveArtifacts artifacts: '/tmp/junit.xml', fingerprint: true
                 junit '/tmp/junit.xml'
             }
         }
