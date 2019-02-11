@@ -4,7 +4,7 @@ pipeline {
 
         stage('Build') {
             agent {
-                docker { image 'docker/compose:1.23.2' }
+                any
             }
             steps {
                 script {
