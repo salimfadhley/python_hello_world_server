@@ -16,6 +16,7 @@ spec:
     spec:
       containers:
       - name: python-hello-world-server
-        image: "salimfadhley/python-hello-world-server:latest"
+        image: "salimfadhley/python_hello_world_server:latest"
         ports:
         - containerPort: 80
+
