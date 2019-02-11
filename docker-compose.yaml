@@ -12,7 +12,7 @@ services:
     <<: *base-dev
     build:
       context: .
-      target: application
+      target: appinstalled
 
   application:
     <<: *base-dev

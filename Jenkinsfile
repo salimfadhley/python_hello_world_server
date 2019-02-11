@@ -9,13 +9,13 @@ pipeline {
                     docker.image("hello-world").withRun('') { c -> }
                 }
                 sh 'docker run hello-world'
-                sh 'docker-compose build'
             }
         }
 
         stage('Test') {
             steps {
                 sh 'docker-compose build'
+                sh 'docker-compose '
 //
 //                sh 'python -m pip install -e src'
 //                sh 'python -m pytest --verbose --tb=long --junitxml=junit.xml src/tests'
