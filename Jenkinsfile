@@ -9,7 +9,7 @@ pipeline {
                 sh 'python -m pip install -e src'
                 sh 'python -m pytest --verbose --tb=long --junitxml=junit.xml src/tests'
                 sh 'ls -l'
-                archiveArtifacts artifacts: '/tmp/*.xml', fingerprint: true
+                archiveArtifacts artifacts: 'junit.xml', fingerprint: true
                 junit 'junit.xml'
             }
         }
