@@ -1,9 +1,9 @@
 pipeline {
-    agent {
-        docker { image 'docker/compose:1.23.2' }
-    }
+    agent none
     stages {
-
+        agent {
+            docker { image 'docker/compose:1.23.2' }
+        }
         stage('Build') {
             steps {
                 script {
@@ -16,6 +16,9 @@ pipeline {
         }
 
         stage('Test') {
+            agent {
+                docker { image 'docker/compose:1.23.2' }
+            }
             steps {
                 sh 'python -m pip install -e src'
                 sh 'python -m pytest --verbose --tb=long --junitxml=junit.xml src/tests'
@@ -25,14 +28,11 @@ pipeline {
             }
         }
 
-
-
-
-        stage('Deploy') {
-            steps {
-                sh 'echo Hello World!'
-            }
-        }
+//        stage('Deploy') {
+//            steps {
+//                sh 'echo Hello World!'
+//            }
+//        }
 
     }
 
