@@ -15,7 +15,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                docker-compose build
+                sh 'docker-compose build'
 //
 //                sh 'python -m pip install -e src'
 //                sh 'python -m pytest --verbose --tb=long --junitxml=junit.xml src/tests'
