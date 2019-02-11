@@ -1,9 +1,9 @@
 pipeline {
-    agent {
-        docker {
-            image 'docker/compose'
-        }
-    }
+//    agent {
+//        docker {
+//            image 'docker/compose'
+//        }
+//    }
     stages {
         stage('build') {
             steps {
