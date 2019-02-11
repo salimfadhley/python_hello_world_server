@@ -1,13 +1,19 @@
 pipeline {
-//    agent {
-//        docker {
-//            image 'docker/compose'
-//        }
-//    }
+    agent any
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                sh 'docker build .'
+                //
+            }
+        }
+        stage('Test') {
+            steps {
+                //
+            }
+        }
+        stage('Deploy') {
+            steps {
+                //
             }
         }
     }
