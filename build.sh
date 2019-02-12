@@ -1,3 +1,2 @@
 #!/usr/bin/env bash
-export USER_ID=`id -u`
-docker-compose build
+docker build . -t salimfadhley/python_hello_world_server:latest

@@ -36,7 +36,7 @@ node {
             } catch (errors) {
                 echo "Lint checking errors detected: ${errors.toString()}"
             }
-            archiveArtifacts artifacts: 'pylint.*', fingerprint: true
+            archiveArtifacts artifacts: 'pylint.xml', fingerprint: true
             junit 'pylint.xml'
         }
     }
