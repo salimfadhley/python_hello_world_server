@@ -10,6 +10,9 @@ node {
 
     stage('Test') {
         customImage.withRun('--entrypoint=/bin/bash') {
+            sh 'whoami'
+            sh 'pwd'
+            sh 'ls -l'
             sh 'python -m pytest /project/src/tests'
         }
     }
