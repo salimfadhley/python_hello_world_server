@@ -2,7 +2,6 @@ import unittest
 
 
 class TestHelloWorld(unittest.TestCase):
-
     def test0(self):
         pass
 
