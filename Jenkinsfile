@@ -7,7 +7,8 @@ pipeline {
             steps {
                 sh 'echo hello world'
                 sh 'find .'
-                scm checkout
+                sh 'docker-compose build'
+
 //                script {
 //                    docker.image("hello-world").withRun('') { c -> }
 //                }
