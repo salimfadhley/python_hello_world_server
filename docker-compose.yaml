@@ -21,6 +21,5 @@ services:
     ports:
       - "8081:80"
     volumes:
-      - ./src:/src
       - .:/project
       - /tmp:/tmp
