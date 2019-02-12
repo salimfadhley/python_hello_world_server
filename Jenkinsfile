@@ -7,9 +7,9 @@ pipeline {
             steps {
                 sh 'docker-compose build'
                 sh 'docker-compose run --entrypoint="python" dev -m pytest --verbose --tb=long --junitxml=/project/pytest.xml /src/tests'
-                archiveArtifacts artifacts: 'pytest.xml', fingerprint: true
                 sh 'ls -l'
                 sh 'find .'
+                archiveArtifacts artifacts: 'pytest.xml', fingerprint: true
                 junit 'pytest.xml'
 //                script {
 //                    docker.image("hello-world").withRun('') { c -> }
