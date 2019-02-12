@@ -1,13 +1,8 @@
 version: '3.7'
 
-x-base-dev: &base-dev
-
-
-
 services:
 
   python:
-    <<: *base-dev
     build:
       context: .
       target: appinstalled
@@ -22,7 +17,6 @@ services:
     restart: on-failure
 
   dev:
-    <<: *base-dev
     image: salimfadhley/python_hello_world_server:latest
     ports:
       - "8081:80"
