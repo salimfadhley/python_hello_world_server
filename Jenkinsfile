@@ -7,7 +7,8 @@ pipeline {
             steps {
                 sh 'docker-compose run --entrypoint="python" application -m pytest --verbose --tb=long --junitxml=/project/junit.xml /project/src/tests'
                 sh 'docker-compose run --entrypoint="cat" application /project/junit.xml >> junit.xml'
-
+                archiveArtifacts artifacts: 'junit.xml', fingerprint: true
+                junit 'junit.xml'
 //                script {
 //                    docker.image("hello-world").withRun('') { c -> }
 //                }
