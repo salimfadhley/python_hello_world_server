@@ -22,4 +22,7 @@ services:
       - "8081:80"
     volumes:
       - .:/project
-      - /tmp:/tmp
+      - tmp:/tmp
+
+volumes:
+  tmp:
