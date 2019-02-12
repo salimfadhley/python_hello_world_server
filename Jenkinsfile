@@ -32,12 +32,10 @@ node {
     stage('LintCheck') {
         customImage.inside() { c ->
             try {
-                sh "pylint /project/src/main /project/src/tests > pylint.txt"
+                sh "pylint /project/src/main /project/src/tests --output-format=pylint2junit.JunitReporter > pylint.xml"
             } catch (errors) {
                 echo "Lint checking errors detected: ${errors.toString()}"
             }
-            sh "python -m pylint2junit --input=pylint.txt --output=pylint.xml"
-
             archiveArtifacts artifacts: 'pylint.*', fingerprint: true
             junit 'pylint.xml'
         }
