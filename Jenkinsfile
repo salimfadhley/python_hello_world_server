@@ -6,7 +6,8 @@ pipeline {
 
             steps {
                 sh 'docker-compose build'
-                sh 'docker-compose run --entrypoint="python" dev -m pytest --verbose --tb=long --junitxml=/tmp/junit.xml /src/tests'
+                sh 'docker-compose run --entrypoint="python" dev -m pytest --verbose --tb=long --junitxml=/tmp/__junit.xml /src/tests'
+                sh 'mv /tmp/__junit.xml ./junit.xml'
                 archiveArtifacts artifacts: 'junit.xml', fingerprint: true
                 junit 'junit.xml'
 //                script {
