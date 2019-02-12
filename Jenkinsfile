@@ -12,9 +12,8 @@ node {
 
 
         customImage.inside() { c ->
-            echo "Hello"
-            sh "echo Hello from inside"
-            sh "python -m pip freeze "
+            sh "python -m pip freeze"
+            sh "python -m pytest /project/src/tests"
         }
     }
 
