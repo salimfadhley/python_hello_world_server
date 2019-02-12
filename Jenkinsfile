@@ -18,7 +18,12 @@ node {
 
     stage('StaticTest') {
         customImage.inside() { c ->
-            sh "python -m mypy /project/src/main /project/src/tests --junit-xml=`pwd`/mypy.xml"
+            try {
+                sh "python -m mypy /project/src/main /project/src/tests --junit-xml=`pwd`/mypy.xml"
+            } catch (errors) {
+                echo "Static errors detected: ${errors.toString()}"
+            }
+
             archiveArtifacts artifacts: 'mypy.xml', fingerprint: true
             junit 'mypy.xml'
         }
