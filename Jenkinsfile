@@ -11,7 +11,7 @@ node {
     stage('Test') {
 
 
-        customImage.inside('--entrypoint=/bin/bash') { c ->
+        customImage.inside() { c ->
             echo "Hello"
             sh "echo Hello from inside"
             sh "python -m pip freeze "

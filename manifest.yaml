@@ -19,4 +19,6 @@ spec:
         image: "salimfadhley/python_hello_world_server:latest"
         ports:
         - containerPort: 80
+        command: ["uvicorn"]
+        args: ["--port=80", "--host=0.0.0.0", "helloworld.main:app"]
 
