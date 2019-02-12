@@ -12,10 +12,9 @@ node {
 
 
         customImage.inside() { c ->
-            sh "python -m pip freeze"
-            sh "python -m pytest /project/src/tests --junitxml=/tmp/junit.xml"
-            archiveArtifacts artifacts: '/tmp/junit.xml', fingerprint: true
-            junit '/tmp/junit.xml'
+            sh "python -m pytest /project/src/tests --junitxml=/project/junit.xml"
+            archiveArtifacts artifacts: '/project/junit.xml', fingerprint: true
+            junit '/project/junit.xml'
         }
     }
 
