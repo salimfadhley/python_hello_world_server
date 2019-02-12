@@ -14,14 +14,9 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'docker-compose build'
-                sh 'docker-compose '
-//
-//                sh 'python -m pip install -e src'
-//                sh 'python -m pytest --verbose --tb=long --junitxml=junit.xml src/tests'
-//                sh 'ls -l'
-//                archiveArtifacts artifacts: 'junit.xml', fingerprint: true
-//                junit 'junit.xml'
+                sh './test.sh'
+                archiveArtifacts artifacts: 'junit.xml', fingerprint: true
+                junit 'junit.xml'
             }
         }
 
