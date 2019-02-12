@@ -5,4 +5,4 @@ cd ${DIR}
 docker-compose build
 touch junit.xml
 chmod a+rw junit.xml
-docker-compose run --entrypoint="python" application -m pytest --verbose --tb=long --junitxml=/project/junit.xml /project/src/tests
+docker-compose run --entrypoint="python" application -m pytest --verbose --tb=long --junitxml=/tmp/junit.xml /project/src/tests
