@@ -2,15 +2,15 @@ pipeline {
     agent any
     stages {
 
-        stage('Build') {
-
-            steps {
-                script {
-                    docker.image("hello-world").withRun('') { c -> }
-                }
-                sh 'docker run hello-world'
-            }
-        }
+//        stage('Build') {
+//
+//            steps {
+//                script {
+//                    docker.image("hello-world").withRun('') { c -> }
+//                }
+//                sh 'docker run hello-world'
+//            }
+//        }
 
         stage('Test') {
 
