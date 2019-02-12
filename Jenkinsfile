@@ -11,14 +11,11 @@ node {
     stage('Test') {
 
 
-        docker.image('mysql:5').inside("--link ${c.id}:db") {
-            /* Wait until mysql service is up */
-            sh 'while ! mysqladmin ping -hdb --silent; do sleep 1; done'
-        }
 
 
-        customImage.inside() {
-        }
+
+//        customImage.inside() { c -> null
+//        }
     }
 
 }
