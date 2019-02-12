@@ -6,6 +6,8 @@ pipeline {
 
             steps {
                 sh 'docker-compose build'
+                sh 'touch junit.xml'
+                sh 'chmod a+rw junit.xml'
                 sh 'docker-compose run --entrypoint="python" dev -m pytest --verbose --tb=long --junitxml=/project/pytest.xml /src/tests'
                 sh 'ls -l'
                 sh 'find .'
