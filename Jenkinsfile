@@ -9,7 +9,7 @@ node {
     }
 
     stage('Test') {
-        customImage.withRun('--entrypoint=/bin/bash') {
+        customImage.inside('--entrypoint=/bin/bash') {
             sh 'whoami'
             sh 'pwd'
             sh 'ls -l'
