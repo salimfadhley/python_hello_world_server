@@ -19,7 +19,7 @@ node {
     stage('StaticTest') {
         customImage.inside() { c ->
             try {
-                sh "python -m mypy /project/src/main /project/src/tests --junit-xml=`pwd`/mypy.xml"
+                sh "python -m mypy /project/src/main /project/src/tests --ignore-missing-imports --junit-xml=`pwd`/mypy.xml"
             } catch (errors) {
                 echo "Static errors detected: ${errors.toString()}"
             }
