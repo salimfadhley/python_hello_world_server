@@ -14,6 +14,7 @@ node {
         customImage.inside() { c ->
             echo "Hello"
             sh "echo Hello from inside"
+            sh "python -m pip freeze "
         }
     }
 
