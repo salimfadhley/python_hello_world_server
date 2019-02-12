@@ -8,11 +8,12 @@ pipeline {
                 sh 'docker-compose build'
                 sh 'touch junit.xml'
                 sh 'chmod a+rw junit.xml'
-                sh 'docker-compose run --entrypoint="python" dev -m pytest --verbose --tb=long --junitxml=/project/pytest.xml /src/tests'
+                sh 'docker-compose run --entrypoint="ls" dev -l /project'
+                sh 'docker-compose run --entrypoint="python" dev -m pytest --verbose --tb=long --junitxml=/project/junit.xml /src/tests'
                 sh 'ls -l'
                 sh 'find .'
-                archiveArtifacts artifacts: 'pytest.xml', fingerprint: true
-                junit 'pytest.xml'
+                archiveArtifacts artifacts: 'junit.xml', fingerprint: true
+                junit 'junit.xml'
 //                script {
 //                    docker.image("hello-world").withRun('') { c -> }
 //                }

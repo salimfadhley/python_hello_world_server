@@ -15,6 +15,8 @@ services:
     ports:
       - "8081:80"
     restart: on-failure
+    volumes:
+      - .:/project
 
   dev:
     image: salimfadhley/python_hello_world_server:latest
