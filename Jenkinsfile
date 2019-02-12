@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
 
             steps {
-                sh 'docker build --target application -t salimfadhley/python_hello_world_server:latest'
+                sh 'docker build . --target application -t salimfadhley/python_hello_world_server:latest'
                 sh 'docker run --rm -v `pwd`:/project --entrypoint=python salimfadhley/python_hello_world_server:latest -m pytest /src/tests -p no:cacheprovider --junitxml=/project/junit.xml'
 //                sh 'docker-compose run --entrypoint="ls" dev -l /project'
 //                sh 'docker-compose run --entrypoint="python" dev -m pytest --verbose --tb=long --junitxml=/project/junit.xml /src/tests'
