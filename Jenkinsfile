@@ -9,7 +9,7 @@ node {
     }
 
     stage('Test') {
-        customImage.withRun('--entrypoint=/bin/bash') { c ->
+        customImage.inside('--entrypoint=/bin/bash') { c ->
             sh('pwd')
         }
     }
