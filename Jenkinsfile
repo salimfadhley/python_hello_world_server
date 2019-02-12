@@ -5,7 +5,7 @@ node {
     stage('Build') {
         checkout scm
         def customImage = docker.build(buildTag)
-        // echo "${customImage.getClass()}"
+        echo "${customImage.getClass()}"
     }
 
     stage('Test') {
