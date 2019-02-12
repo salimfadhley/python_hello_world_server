@@ -12,13 +12,9 @@ node {
 
 
         customImage.inside() { c ->
-            dir("/project/") {
-                sh "python -m pytest /project/src/tests --junitxml=/project/junit.xml"
-                sh "pwd"
-                sh "ls -l"
-                archiveArtifacts artifacts: '/project/junit.xml', fingerprint: true
-                junit '/project/junit.xml'
-            }
+            sh "python -m pytest /project/src/tests --junitxml=`pwd`/junit.xml"
+            archiveArtifacts artifacts: '/project/junit.xml', fingerprint: true
+            junit '/project/junit.xml'
         }
     }
 
