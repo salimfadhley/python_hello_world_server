@@ -10,7 +10,7 @@ node {
 
     stage('Test') {
         customImage.withRun('--entrypoint=/bin/bash') { c ->
-            sh('whoami')
+            sh('pip freeze')
         }
     }
 
