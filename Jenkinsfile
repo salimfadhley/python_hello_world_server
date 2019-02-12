@@ -11,11 +11,9 @@ node {
     stage('Test') {
 
 
-
-
-
-//        customImage.inside() { c -> null
-//        }
+        customImage.inside() { c ->
+            echo "Hello"
+        }
     }
 
 }
