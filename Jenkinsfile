@@ -1,14 +1,11 @@
-import org.jenkinsci.plugins.docker.workflow.Docker$Image
-
 node {
     String baseName = "salimfadhley/python_hello_world_server"
     String buildTag = "${baseName}:${env.BUILD_ID}".toString()
-    Docker$Image customImage
+    def customImage
 
     stage('Build') {
         checkout scm
         customImage = docker.build(buildTag)
-        echo "XXXX ${customImage.getClass()}"
     }
 
     stage('Test') {
