@@ -3,3 +3,5 @@ gitpython
 uvicorn
 pytest
 mypy
+pylint
+pylint2junit

@@ -29,6 +29,20 @@ node {
         }
     }
 
+    stage('LintCheck') {
+        customImage.inside() { c ->
+            try {
+                sh "python -m pylint /project/src/main /project/src/tests > pylint.txt"
+                sh "python -m pylint2junit –input=pylint.txt –output=pylint.xml"
+            } catch (errors) {
+                echo "Lint checking errors detected: ${errors.toString()}"
+            }
+
+            archiveArtifacts artifacts: 'pylint.*', fingerprint: true
+            junit 'pylint.xml'
+        }
+    }
+
 
 
 }
