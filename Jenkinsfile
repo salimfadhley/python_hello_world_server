@@ -1,10 +1,11 @@
 node {
+    String baseName = "salimfadhley/python_hello_world_server"
+    String buildTag = "${baseName}:${env.BUILD_ID}".toString()
+
     stage('Build') {
         checkout scm
-
-        String buildTag = "salimfadhley/python_hello_world_server:${env.BUILD_ID}"
         def customImage = docker.build(buildTag)
-        echo "${customImage.getClass()}"
+        // echo "${customImage.getClass()}"
     }
 
     stage('Test') {
