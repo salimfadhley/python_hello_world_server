@@ -7,3 +7,4 @@ FROM appinstalled AS application
 WORKDIR /project
 ENTRYPOINT ["uvicorn", "--port=80", "--host=0.0.0.0", "helloworld.main:app"]
 EXPOSE 8080
+

@@ -1,10 +1,8 @@
 version: '3.7'
 
 x-base-dev: &base-dev
-  restart: on-failure
-  volumes:
-    - ./src:/src
-    - .:/project
+
+
 
 services:
 
@@ -15,10 +13,19 @@ services:
       target: appinstalled
 
   application:
-    <<: *base-dev
     image: salimfadhley/python_hello_world_server:latest
     build:
       context: .
       target: application
     ports:
       - "8081:80"
+    restart: on-failure
+
+  dev:
+    <<: *base-dev
+    image: salimfadhley/python_hello_world_server:latest
+    ports:
+      - "8081:80"
+  volumes:
+    - ./src:/src
+    - .:/project
