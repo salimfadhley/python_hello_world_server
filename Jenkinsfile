@@ -5,10 +5,8 @@ pipeline {
         stage('Build') {
 
             steps {
-                sh 'echo hello world'
-                sh 'find .'
-                sh 'docker-compose build'
-                sh 'docker-compose run --entrypoint="python" application -m pytest --verbose --tb=long --junitxml=/tmo/junit.xml /project/src/tests'
+                sh 'docker-compose run --entrypoint="find" application .'
+                sh 'docker-compose run --entrypoint="python" application -m pytest --verbose --tb=long --junitxml=/project/junit.xml /project/src/tests'
 //                script {
 //                    docker.image("hello-world").withRun('') { c -> }
 //                }
