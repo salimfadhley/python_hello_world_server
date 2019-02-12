@@ -15,9 +15,9 @@ pipeline {
         stage('Test') {
 
             steps {
-                sh find .
+                sh 'find .'
                 scm checkout
-                sh find .
+                sh 'find .'
                 sh './test.sh'
                 archiveArtifacts artifacts: 'junit.xml', fingerprint: true
                 junit 'junit.xml'
