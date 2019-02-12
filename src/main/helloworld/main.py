@@ -1,3 +1,6 @@
+"""
+A very important module, designed to do something hella-useful.
+"""
 import datetime
 
 import git
@@ -6,16 +9,17 @@ from pydantic import BaseModel
 
 from helloworld.git_info import get_git_info
 
-app = FastAPI()
+APP = FastAPI()
 
 
 class GitInformation(BaseModel):
+    """Represents some Git Information."""
     message: str
     hexsha: str
     time: datetime.datetime
 
 
-@app.get("/")
+@APP.get("/")
 def read_root() -> GitInformation:
     """Get information about the git repo from which this server was built.
     """
