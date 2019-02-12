@@ -32,7 +32,7 @@ node {
     stage('LintCheck') {
         customImage.inside() { c ->
             try {
-                sh "pylint helloworld --output-format=pylint2junit.JunitReporter > pylint.xml"
+                sh "pylint helloworld --output-format=pylint2junit.JunitReporter > pylint.xml && cp empty.xml_ pylint.xml"
             } catch (errors) {
                 echo "Lint checking errors detected: ${errors.toString()}"
             }
