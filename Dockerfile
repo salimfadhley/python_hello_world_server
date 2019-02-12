@@ -1,5 +1,6 @@
 FROM salimfadhley/testpython:latest AS appinstalled
 COPY . /project
+COPY src /src
 RUN python -m pip install -e /project/src
 
 # Application

@@ -20,6 +20,6 @@ services:
     image: salimfadhley/python_hello_world_server:latest
     ports:
       - "8081:80"
-  volumes:
-    - ./src:/src
-    - .:/project
+    volumes:
+      - ./src:/src
+      - .:/project
