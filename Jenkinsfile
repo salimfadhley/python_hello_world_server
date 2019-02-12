@@ -36,7 +36,7 @@ node {
             } catch (errors) {
                 echo "Lint checking errors detected: ${errors.toString()}"
             }
-            sh "python -m pylint2junit -i pylint.txt -o pylint.xml"
+            sh "python -m pylint2junit --input=pylint.txt --output=pylint.xml"
 
             archiveArtifacts artifacts: 'pylint.*', fingerprint: true
             junit 'pylint.xml'
