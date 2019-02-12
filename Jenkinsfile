@@ -10,8 +10,7 @@ node {
 
     stage('Test') {
         customImage.withRun('--entrypoint=/bin/bash') {
-            echo("Hi There!")
-            sh 'echo Hello World'
+            sh 'python -m pytest /project/src/tests'
         }
     }
 
