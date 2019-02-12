@@ -13,7 +13,8 @@ node {
             sh 'whoami'
             sh 'pwd'
             sh 'ls -l'
-            sh 'python -m pytest /project/src/tests'
+            sh 'hostname'
+            sh 'python3 -m pytest /project/src/tests'
         }
     }
 
