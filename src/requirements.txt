@@ -2,3 +2,4 @@ fastapi
 gitpython
 uvicorn
 pytest
+mypy
