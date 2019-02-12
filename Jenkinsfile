@@ -13,6 +13,7 @@ pipeline {
         }
 
         stage('Test') {
+            scm checkout
             steps {
                 sh './test.sh'
                 archiveArtifacts artifacts: 'junit.xml', fingerprint: true
