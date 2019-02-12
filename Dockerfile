@@ -1,4 +1,4 @@
-FROM salimfadhley/testpython:latest AS application
+FROM salimfadhley/testpython:latest
 COPY . /project
 COPY src /src
 RUN python -m pip install -e /project/src
