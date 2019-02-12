@@ -6,6 +6,7 @@ pipeline {
 
             steps {
                 sh 'echo hello world'
+                sh 'find .'
                 scm checkout
 //                script {
 //                    docker.image("hello-world").withRun('') { c -> }
