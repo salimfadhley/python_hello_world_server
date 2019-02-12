@@ -9,8 +9,7 @@ node {
     }
 
     stage('Test') {
-        customImage.inside('--entrypoint=/bin/bash') {
-            echo "Hello Inside!"
+        customImage.inside() {
             sh "pwd"
         }
     }
