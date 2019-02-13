@@ -6,15 +6,16 @@ node {
     def customImage
 
 
-    (1..2).each{ bn ->
+    stage(stageName) {
 
-        String stageName = "Build_${bn}".toString()
+        (1..2).each{ bn ->
+            String stageName = "Build_${bn}".toString()
+            echo(stageName)
+        }
 
-        stage(stageName) {
         checkout scm
         customImage = docker.build(buildTag)
         }
-
 
     }
 
