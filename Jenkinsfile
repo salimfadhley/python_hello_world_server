@@ -10,13 +10,17 @@ node {
 
         checkout scm
 
-
-        ["A", "B"].each{ bn ->
-            {
-                def stageName = "Build_${bn}".toString()
-//                echo(stageName)
-            }
+        def versions = ["A", "B"]
+        for ( version in versions) {
+            def stageName = "Build_${version}".toString()
+            echo(stageName)
         }
+
+//        ["A", "B"].each{ bn ->
+//                def stageName = "Build_${bn}".toString()
+////                echo(stageName)
+//            }
+//        }
 
 //        customImage = docker.build(buildTag)
 
