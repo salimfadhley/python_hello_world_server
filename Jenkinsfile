@@ -34,11 +34,7 @@ node {
 
     stage('Decide') {
 
-        customImage1.inside() { c1 -> {
-            customImage2.inside() { c2 -> {
-                echo "Hello World!"
-            }}
-        }}
+        customImage1.inside() { c1 -> }
 
     }
 
