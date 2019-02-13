@@ -1,3 +1,5 @@
+import hudson.model.*
+
 node {
     String baseName = "salimfadhley/python_hello_world_server"
     String buildTag = "${baseName}:${env.BUILD_ID}".toString()
@@ -37,11 +39,13 @@ node {
                 echo "Lint checking errors detected: ${errors.toString()}"
             }
             archiveArtifacts artifacts: 'pylint.xml', fingerprint: true
-            def files = findFiles(glob="pylint.xml")
-            if (files[0].length > 0) {
-                junit 'pylint.xml'
-            }
+        }
+        def workspace = build.getEnvVars()["WORKSPACE"]
+        String lintFilePath = "${workspace}/pylint.xml"
+        File lintFile = File(lintFilePath)
 
+        if (lintFile.length() > 0) {
+            junit 'pylint.xml'
         }
     }
 
