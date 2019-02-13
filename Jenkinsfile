@@ -18,6 +18,21 @@ node {
         customImage2 = docker.build(buildTag2)
     }
 
+    stage('Push1') {
+        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+            customImage1.push("${env.BUILD_NUMBER}")
+            customImage1.push("latest")
+        }
+    }
+
+    stage('Push2') {
+        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+            customImage2.push("${env.BUILD_NUMBER}")
+            customImage2.push("latest")
+        }
+    }
+
+
 //    stage('UnitTest') {
 //        customImage.inside() { c ->
 //            sh "python -m pytest /project/src/tests --junitxml=`pwd`/junit.xml"
