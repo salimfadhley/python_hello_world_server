@@ -15,7 +15,7 @@ node {
 
         checkout scm
         customImage = docker.build(buildTag)
-        }
+
 
     }
 
