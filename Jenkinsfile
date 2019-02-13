@@ -50,9 +50,9 @@ node {
     }
 
     stage('Deploy') {
-        kubernetesDeploy(kubeconfigId: 'digital-ocean',
-                configs: 'manifest.yaml'
-        )
+//        kubernetesDeploy(kubeconfigId: 'digital-ocean',
+//                configs: 'manifest.yaml'
+//        )
     }
 
 
