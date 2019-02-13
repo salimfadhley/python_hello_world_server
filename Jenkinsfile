@@ -8,7 +8,7 @@ node {
 
     stage(stageName) {
 
-        (1..2).each{ bn ->
+        ["A", "B"].each{ bn ->
             String stageName = "Build_${bn}".toString()
             echo(stageName)
         }
