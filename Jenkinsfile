@@ -40,12 +40,12 @@ node {
             }
             archiveArtifacts artifacts: 'pylint.xml', fingerprint: true
         }
-        def workspace = build.getEnvVars()["WORKSPACE"]
-        String lintFilePath = "${workspace}/pylint.xml"
-        File lintFile = new File(lintFilePath)
+    }
 
-        if (lintFile.length() > 0) {
-            junit 'pylint.xml'
+    stage('Push') {
+        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+            customImage.push("${env.BUILD_NUMBER}")
+            customImage.push("latest")
         }
     }
 
