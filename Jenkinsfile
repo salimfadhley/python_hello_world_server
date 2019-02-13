@@ -34,8 +34,8 @@ node {
 
     stage('Decide') {
 
-        customImage1.inside() { c1 ->
-            customImage2.inside() { c2 ->
+        customImage1.withRun() { c1 ->
+            customImage2.withRun() { c2 ->
                 echo "Hello World!"
             }
         }
