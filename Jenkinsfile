@@ -42,7 +42,7 @@ node {
         }
         def workspace = build.getEnvVars()["WORKSPACE"]
         String lintFilePath = "${workspace}/pylint.xml"
-        File lintFile = File(lintFilePath)
+        File lintFile = new File(lintFilePath)
 
         if (lintFile.length() > 0) {
             junit 'pylint.xml'
