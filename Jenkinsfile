@@ -8,13 +8,15 @@ node {
 
     stage(stageName) {
 
+        checkout scm
+
+
         ["A", "B"].each{ bn ->
             String stageName = "Build_${bn}".toString()
             echo(stageName)
         }
 
-        checkout scm
-        customImage = docker.build(buildTag)
+//        customImage = docker.build(buildTag)
 
 
     }
