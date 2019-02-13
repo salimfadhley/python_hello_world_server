@@ -32,12 +32,16 @@ node {
     stage('LintCheck') {
         customImage.inside() { c ->
             try {
-                sh "pylint helloworld --output-format=pylint2junit.JunitReporter > pylint.xml && cp empty.xml_ pylint.xml"
+                sh "pylint helloworld --output-format=pylint2junit.JunitReporter > pylint.xml"
             } catch (errors) {
                 echo "Lint checking errors detected: ${errors.toString()}"
             }
             archiveArtifacts artifacts: 'pylint.xml', fingerprint: true
-            junit 'pylint.xml'
+            def files = findFiles(glob="pylint.xml")
+            if (files[0].length > 0) {
+                junit 'pylint.xml'
+            }
+
         }
     }
 
