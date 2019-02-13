@@ -12,8 +12,10 @@ node {
 
 
         ["A", "B"].each{ bn ->
-            String stageName = "Build_${bn}".toString()
-            echo(stageName)
+            {
+                def stageName = "Build_${bn}".toString()
+//                echo(stageName)
+            }
         }
 
 //        customImage = docker.build(buildTag)
